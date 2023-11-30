@@ -1,0 +1,239 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins";
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*menu*/
+
+header {
+    display: flex; /* mette gli elementi uno accando all'altro*/
+    justify-content: space-between; /*posiziona gli elementi rispetto all'asse orizzontale: mette uno spazio in mezzo*/
+    align-items: center; /*allinea gli elementi rispetto all'asse verticale : li mette al centro*/
+}
+
+nav{
+    margin: 4em; /*per togliere il margine che il browser da di default  alla nav*/
+}
+
+nav ul{
+    list-style-type: none; /*per togliere i puntini dal menu*/
+    display: flex; /*per metterli uno accanto all'altro*/
+    gap: 4.1em; /*per distanziare le voci del menu*/
+    margin: 0; /*per togliere il margine ai singoli elementi del menu*/
+}
+
+/*REM per la dimensione del carattere, EM per gli altri elementi*/
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    position: relative;
+}
+
+nav ul li a:hover::before {
+    width: 35%;
+}
+
+/*banner hero*/
+main {
+    display: flex; /*mette i due div dentro main uno affianco all'altro*/
+    gap: 8em; /*separa i due div*/
+    margin-top: 11em; /*margine rispetto al menu*/
+}
+
+.left-col {
+    width: 45%; /*la colonna a sinistra deve occupare il 45%*/
+}
+
+.right-col {
+    flex-grow: 1; /*espande lo spazio occupato dalla colonna a sinistra*/
+}
+
+/*colonna sinistra banner hero*/
+h1 {
+    font-size: 5.2rem;
+    font-family: 'Playfair Display';
+    font-weight: normal;
+    margin: 0;
+}
+
+.subhead {
+    font-size: 1.8rem;
+}
+
+.cta-btns {
+    margin: 5em 0;
+}
+
+.cta-btns, .secondary-cta {
+    display: flex;
+    gap: 2em;
+}
+
+.primary-cta {
+    background-color: #f1e2d1;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    border-radius: 1.9em;
+    padding: 1em 2em;
+}
+
+.secondary-cta {
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: black;
+    display: block; /*per farlo andare tutto sulla stessa riga*/
+    padding: 1em 0;
+}
+
+.secondary-cta svg {
+    width: 20px;
+    transition: transform 0.3s; /*serve per ritardare di 3 secondi la transition della freccia data con l'hover*/
+}
+
+.news {
+    display: flex;
+    gap: 3em;
+    padding: 5em;
+    border: 1px solid black;
+    border-radius: 0.8em;
+    position: relative;
+}
+
+.news::before{
+    position: absolute;
+    content: "";
+    background-image: url("images/confetti.svg");
+    width: 100px;
+    height: 100px;
+    top: -20px;
+    left: -20px;
+    z-index: 2;
+}
+
+p.employees {
+    font-size: 3.3rem;
+    margin: 0;
+    font-weight: 200;
+    line-height: 100%; /*per riallineare "50k" all'altra scritta*/
+}
+
+p.details {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+/*colonna sinistra banner hero*/
+
+.right-col{
+    display: grid;
+    gap: 2.3em;
+    grid-template-columns: repeat(2 auto);
+    grid-template-areas: 
+        "left right"
+        "left bottom";
+}
+
+.card {
+    border-radius: 0.8em;
+    padding: 1.1em; /*da un padding generale*/
+    display: flex; /*per fare andare giù la descrizione e ilprezzo usiamo rendiamo il div flex*/
+    align-items: end; /*e sull'asse verticale gli diciamo di andare alla fine */
+    background-size: 150%; /*regola la dimensione del background, in questo caso delle immagini in background*/
+    transition: background-size 800ms;/*serve per ritardare di 8 millisecondi la transition dell'immagine data con l'hover della card*/
+}
+
+.card1{
+    grid-area: left; /*questa è l'unica card a cui dobbiamo specificare il nome dell'area richiamato nella grid-colum-template sopra perchè è quella che occupa due righe*/
+    background-image: url("images/clothing1.jpg");
+    position: relative;
+}
+
+.card1::before{
+    position: absolute;
+    content: "";
+    background: url("images/tag.svg") no-repeat;
+    width: 100%;
+    height: 100%;
+    top: 20px;
+    left: -30px;
+    pointer-events: none; /*lo aggiungo perchè in questo modo rimane cliccabile il link in basso alla card*/
+}
+
+.card2{
+    background-image: url("images/clothing2.jpg");
+}
+
+.card3{
+    background-image: url("images/clothing3.jpg");
+}
+
+.card-details {
+    background-color: white;
+    border-radius: 0.6em;
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 800ms; /*serve per ritardare di 8 millisecondi la transition del div con prezzo e descrizione data con l'hover*/
+}
+
+.card-details a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.card-details p {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+p.product-size {
+    font-size: 1.8rem;
+}
+
+nav ul li a:hover::before {
+    position: absolute;
+    content: "";
+    width: 35%;
+    height: 1px;
+    border-bottom: 2px solid rgb(122, 122, 122);
+    bottom: -6px;
+    transition: width 0.3s;
+}
+
+.primary-cta:hover{
+    background: #e2d1bd;
+}
+
+.secondary-cta:hover svg {
+    transform: translateX(10px);
+}
+
+.secondary-cta:hover {
+    text-decoration: underline;
+}
+
+.card:hover {
+    background-size: 160%;
+}
+
+.card:hover .card-details {
+    transform: translateY(-20px);
+}
